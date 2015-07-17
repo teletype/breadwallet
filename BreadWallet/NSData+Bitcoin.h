@@ -77,10 +77,10 @@ typedef union _UInt128 {
 #define uint160_obj(u) ([NSValue value:(u).u8 withObjCType:@encode(UInt160)])
 #define uint128_obj(u) ([NSValue value:(u).u8 withObjCType:@encode(UInt128)])
 
-#define UINT512_ZERO ((UInt512) { 0, 0, 0, 0, 0, 0, 0, 0 })
-#define UINT256_ZERO ((UInt256) { 0, 0, 0, 0 })
-#define UINT160_ZERO ((UInt160) { 0, 0, 0, 0, 0 })
-#define UINT128_ZERO ((UInt128) { 0, 0 })
+#define UINT512_ZERO ((UInt512) { .u64 = { 0, 0, 0, 0, 0, 0, 0, 0 } })
+#define UINT256_ZERO ((UInt256) { .u64 = { 0, 0, 0, 0 } })
+#define UINT160_ZERO ((UInt160) { .u32 = { 0, 0, 0, 0, 0 } })
+#define UINT128_ZERO ((UInt128) { .u64 = { 0, 0 } })
 
 typedef struct _UTXO {
     UInt256 hash;
